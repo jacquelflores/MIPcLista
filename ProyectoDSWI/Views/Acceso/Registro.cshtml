@@ -1,0 +1,88 @@
+﻿
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_LayaoutLogin.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="col-md-9" style="background-image:url('./../../Imagenes/fondologin.jpg'); height:100vh; background-size:cover; background-repeat:no-repeat">
+
+    </div>
+
+
+    <div class="col-md-3 animate__animated animate__fadeIn">
+
+
+        <form action="@Url.Content("/Acceso/Registro")" method="post">
+
+            <input type="submit" value="<< Login" style="color: #7e7e7e;" class="btn btn-link" id="Login" />
+            <script type="text/javascript">
+                document.getElementById("Login").onclick = function () {
+                    location.href = "/Acceso/Login";
+                };
+            </script>
+
+            <div class=" form-group text-center">
+                <img src="~/Imagenes/li.png" style="width:140px;" />
+            </div>
+
+            <div class=" form-group">
+                <h4 style="text-align:center; color: #7e7e7e;">Registro de usuario</h4>
+            </div>
+
+
+            <div class=" form-group">
+
+                <label style="color: #7e7e7e">Ingrese sus nombres</label>
+                <input type="text" required class="form-control" name="Name" />
+
+            </div>
+            <div class=" form-group">
+
+                <label style="color: #7e7e7e">Ingrese su DNI      </label>
+                <input type="text" required class="form-control" maxlength="7" minlength="7" name="Dni" />
+
+            </div>
+            <div class=" form-group">
+
+                <label style="color: #7e7e7e">ingrese su correo   </label>
+                <input type="email" required class="form-control" name="User" />
+
+            </div>
+            <div class=" form-group">
+
+                <label style="color: #7e7e7e">ingrese la contraseña</label>
+                <input type="password" class="form-control" required name="Pass" />
+
+            </div>
+            <div class=" form-group">
+
+                <label style="color: #7e7e7e">Repita la contraseña</label>
+                <input type="password" class="form-control" required name="PassRep" />
+
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Registrarse" class="btn btn-success btn-lg btn-block" />
+            </div>
+
+
+            <div class="form-group">
+                <div class="danger">
+                    @ViewBag.Error
+                </div>
+            </div>
+        </form>
+     
+
+    </div>
+</div>
+
+        
+
+
+
+
+

@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_LayaoutLogin.cshtml";
+}
+
+<div class="row">
+
+    <div class="col-md-9" style="background-image:url('./../../Imagenes/fondologin.jpg'); height:100vh; background-size:cover; background-repeat:no-repeat">
+     
+    </div>
+
+    <div class="col-md-3 mt-10 animate__animated animate__fadeIn">
+
+
+        @*<div class="row">*@
+
+        <form action="@Url.Content("/Acceso/Login")" method="post">
+            
+            <div class=" form-group text-center">
+                <img src="~/Imagenes/li.png" style="width:140px;" />
+            </div>
+
+            <div class=" form-group">
+                <label style="color: #7e7e7e">Usuario</label>
+                <input type="email" name="User" placeholder="Usuario" class="form-control" />
+            </div>
+            <div class=" form-group">   
+                <label style="color: #7e7e7e">Contraseña</label>
+                <input type="password" name="Pass" placeholder="contraseña" class="form-control" />
+            </div>
+            <div class=" form-group">
+                <input type="submit" value="Entrar" class="btn btn-success btn-lg btn-block" />
+            </div>
+
+            <div class="danger text-center" style="color: red; margin: 0px 42px 0 42px !important">
+                @ViewBag.Error
+            </div>
+
+        </form>
+
+
+        <br />
+
+        @*<div class=" form-group text-center" style="margin: 0px 42px 0 42px !important">
+            <h5 style="color: black">¿No tiene una cuenta?</h5>
+        </div>*@
+
+    <div class=" form-group" style="margin: 0px 42px 0 42px !important">
+
+        <div class="col-md-4">
+            <input type="submit" value="Registrarse" style="color: #7e7e7e;" class="btn btn-link" id="btnRegistrar" /> 
+            <script type="text/javascript">
+                document.getElementById("btnRegistrar").onclick = function () {
+                    location.href = "/Acceso/Registro";
+                };
+            </script>
+        </div>
+
+ 
+      
+        <div class="col-md-8">
+            <input type="submit" value="Cambiar contraseña" style="color: #7e7e7e;"  class="btn btn-link" id="btnNuevaContrasenia" />
+            <script type="text/javascript">
+                document.getElementById("btnNuevaContrasenia").onclick = function () {
+                    location.href = "/Acceso/NuevaContrasenia";
+                };
+            </script>
+        </div>
+       
+    </div>
+
+
+        @*<div class=" form-group text-center" style="margin: 0px 42px 0 42px !important">
+            <h5 style="color:black">¿Olvidaste tu contraseña?</h5>
+        </div>
+        <div class=" form-group " style="margin: 0px 42px 0 42px !important">
+          
+        </div>*@
+
+        <footer>
+            @*<strong>&copy; @DateTime.Now.Year</strong>*@
+        </footer>
+
+        @*</div>*@
+    </div>
+
+    </div>
+
+
+

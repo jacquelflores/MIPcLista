@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="bb81a02b3e8643f4809d543e681f7261" Name="Diagram1">
+        <EntityTypeShape EntityType="ProyectoBDModel.Categoria" Width="1.5" PointX="0.75" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoBDModel.ListaVenta" Width="1.5" PointX="5.25" PointY="1.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoBDModel.Producto" Width="1.5" PointX="3" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProyectoBDModel.Venta" Width="1.5" PointX="3" PointY="5.375" IsExpanded="true" />
+        <AssociationConnector Association="ProyectoBDModel.FK__Producto__Activo__1273C1CD" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__ListaVent__IdPro__182C9B23" ManuallyRouted="false" />
+        <AssociationConnector Association="ProyectoBDModel.FK__ListaVent__Venta__173876EA" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="ProyectoBDModel.modulo" Width="1.5" PointX="3.125" PointY="9.875" />
+        <EntityTypeShape EntityType="ProyectoBDModel.operaciones" Width="1.5" PointX="5.375" PointY="9.625" />
+        <EntityTypeShape EntityType="ProyectoBDModel.rol" Width="1.5" PointX="5.375" PointY="6.75" />
+        <EntityTypeShape EntityType="ProyectoBDModel.rol_operacion" Width="1.5" PointX="7.625" PointY="5.625" />
+        <EntityTypeShape EntityType="ProyectoBDModel.usuario" Width="1.5" PointX="7.625" PointY="9.125" />
+        <AssociationConnector Association="ProyectoBDModel.FK_operaciones_modulo" />
+        <AssociationConnector Association="ProyectoBDModel.FK_rol_operacion_operaciones" />
+        <AssociationConnector Association="ProyectoBDModel.FK_rol_operacion_rol" />
+        <AssociationConnector Association="ProyectoBDModel.FK_usuario_rol" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

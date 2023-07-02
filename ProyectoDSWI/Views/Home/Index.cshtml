@@ -1,0 +1,53 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="container" style="margin-top:7%;">
+
+    <h3>Bienvenidos</h3>
+
+     <hr />
+
+    <div class="row">
+
+        <div class="col-md-3 car">
+            <div class="card" style="width: 18rem;">
+                <i class="glyphicon glyphicon-wrench" style="font-size: 12rem;"></i>
+                <div class="card-body">
+                    <h5 class="card-title">
+                        @Html.ActionLink("MANTENIMIENTO", "Index", "Producto")
+                    </h5>
+                
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 car">
+            <div class="card" style="width: 18rem;">
+                <i class="glyphicon glyphicon-home" style="font-size: 12rem;"></i>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.ActionLink("TIENDA", "Index2", "Producto")</h5>
+
+                  
+
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-3 car">
+            <div class="card" style="width: 18rem;">
+                <i class="glyphicon glyphicon-tag" style="font-size: 12rem;"></i>
+                <div class="card-body">
+                    <h5 class="card-title">@Html.ActionLink("CARRITO", "AgregarCarrito", "Carrito")</h5>
+             
+                </div>
+            </div>
+        </div>
+
+
+
+
+    </div>
+    
+</div>

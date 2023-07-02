@@ -1,0 +1,103 @@
+﻿@{
+    ViewBag.Title = "AgregarCarrito";
+}
+
+<h2 class="text-center">SU CARRITO DE COMPRAS</h2>
+<br />
+<div class="container">
+    <div class="col-lg-10" style="float: left">
+        <table class="table table-bordered table-striped">
+            <thead>
+                <tr class="bg-primary">
+                    <th>Identificador</th>
+                    <th>PRODUCTO</th>
+                    <th>PRECIO</th>
+                    <th>CANTIDAD</th>
+                    <th>TOTAL</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    double total = 0;
+                }
+                @if (Session["carrito"] != null)
+                {
+                    foreach (var item in Session["carrito"] as List<ProyectoDSWI.Models.Carrito1Item>)
+                    {
+                        total += (double)(item.Cantidad * item.Producto.Precio);
+
+                        <tr>
+                            <td>@item.Producto.IdProducto</td>
+                            <td>@item.Producto.NombrePro</td>
+                            <td>@String.Format("{0:C}", item.Producto.Precio)</td>
+                            <td class="text-center">@item.Cantidad</td>
+                            <td>@String.Format("{0:C}", (item.Cantidad * item.Producto.Precio))</td>
+                            <td class="text-center">
+                                @Html.ActionLink("Eliminar", "Delete", "Carrito",
+                                 new { id = item.Producto.IdProducto },
+                                 new { @class = "btn btn-danger" })
+                            </td>
+                        </tr>
+                    }
+                }
+            </tbody>
+            <tr></tr>
+            <tfoot>
+                <tr>
+                    <th colspan="8">Total</th>
+                    <th>@String.Format("{0:C}", total)</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+    <div class="col-md-2" style="float: right">
+        <form action="@Url.Content("/Carrito/FinalizarCompra")" method="post">
+            <div style="text-align:center" class=" form-group">
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">Tipo de tarjeta</label></div>
+                    <select name="tipoTarjeta" required>
+                        <option value="visa">Visa</option>
+                        <option value="mastercard">Mastercard</option>
+                    </select>
+                </div>
+            </div>
+            <div style="text-align:center" class=" form-group">
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">Número de tarjeta</label></div>
+                    <div class="column"><input type="text" required maxlength="16" minlength="16" name="NumTarjeta" /></div>
+                </div>
+            </div>
+            <div style="text-align:center" class=" form-group">
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">Fecha Vencimiento</label></div>
+                    <div class="column"><input type="text" required hint="DD/YYYY" maxlength="7" minlength="7" name="FecVenc" /></div>
+                </div>
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">CVV</label></div>
+                    <div class="column"><input type="text" required maxlength="3" minlength="3" name="CVV" /></div>
+                </div>
+            </div>
+            <div style="text-align:center" class=" form-group">
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">Nombre de titular</label></div>
+                    <div class="column"><input type="text" required name="NomTitu" /></div>
+                </div>
+            </div>
+            <div style="text-align:center" class=" form-group">
+                <div class="row">
+                    <div class="column"><label style="color: darkblue">Correo   </label></div>
+                    <div class="column"><input type="email" required name="Correo" /></div>
+                </div>
+            </div>
+            <div style="text-align:center" class=" form-group">
+                <input type="submit" value="TERMINAR COMPRA" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+<br />
+@Html.ActionLink("SEGUIR COMPRANDO", "Index2", "Producto")
+<br />
+@*@Html.ActionLink("TERMINAR COMPRA", "FinalizarCompra", "Carrito")
+    <button href='@Url.Action("FinalizarCompra", "Carrito")'>*@

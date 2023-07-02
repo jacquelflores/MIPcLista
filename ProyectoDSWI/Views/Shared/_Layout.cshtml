@@ -1,0 +1,53 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+        <link href="~/Content/css/global.css" rel="stylesheet" />
+
+</head>
+
+@*<body style=" background-image: url(../../Imagenes/PC-piezas.jpg)">*@
+@*background: class="bg-image" style="background-image: url('https://fondosmil.com/fondo/46044.jpg'); height: 100vh "*@
+<body>
+    @*<img background: class="bg-image" style="background-image: url('https://images.staticjw.com/asc/1566/banner-computadoras.jpg'); height: 40vh ">
+        </img>*@
+    @*<img src="https://www.movilnetperu.com/img/venta.jpeg" ; style="height: 35vh; width:210vh" />*@
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Inicio", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })*@
+                <img src="~/Imagenes/li.png" style="width:53px;" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav pull-right">
+                    <li>@Html.ActionLink("MANTENIMIENTO DE PRODUCTOS", "Index", "Producto")</li>
+                    <li>@Html.ActionLink("TIENDA", "Index2", "Producto")</li>
+                    <li>@Html.ActionLink("SU CARRITO DE COMPRAS", "AgregarCarrito", "Carrito")</li>
+                    <li>@Html.ActionLink("CERRAR SESION", "Login", "Acceso")</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        @*<hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>*@
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

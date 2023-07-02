@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<ProyectoDSWI.Models.Producto>
+
+
+<br />
+<div>
+    @*<img src="~/App_Data/Imagenes/fnd.jpg"/>*@
+
+</div>
+<h2 class="text-center">TIENDA</h2>
+<br />
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr class="bg-primary">
+            <th>Identificador</th>
+            <th>PRODUCTO</th>
+            <th>PRECIO</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr class="bg-danger">
+                <td>@item.IdProducto</td>
+                <td>@item.NombrePro</td>
+                <td>@String.Format("{0:C}", item.Precio)</td>
+                <td><input type="number" class="form-control numbers" min="0" /></td>
+                <td><a href="#" class="agregar">AGREGAR AL CARRITO</a></td>
+                @*<td class="text-center">@Html.ActionLink("Agregar","AgregarCarrito","Carrito",
+                    new { id=item.Id},
+                    new { @class = "btn btn-success"})</td>*@
+            </tr>
+        }
+    </tbody>
+</table>
+
+@section Scripts
+{
+    <script>
+        $(function () {
+            $(".agregar").on("click", function (event) {
+                event.preventDefault();
+                var ProductoId = $(this).parent().parent().find("td:eq(0)").text();
+                var cantidad = $(this).parent().parent().find("input").val();
+
+                $.ajax(
+                    {
+                        url: "@Url.Action("AgregarCarrito","Carrito")",
+                        data: { id: ProductoId, cantidad: cantidad },
+                        type: "post",
+                        success: function (response) {
+                            window.location.href = "@Url.Action("AgregarCarrito","Carrito")";
+                        },
+                        error: function (err, error) {
+                            alert(error);
+                        }
+                    }
+                )
+            })
+
+            $(".numbers").keydown(function (e) {
+                if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 40]) !== -1 ||
+                    (e.keyCode == 65 && e.ctrlKey == true) ||
+                    (e.keyCode >= 35 && e.keyCode <= 39)) {
+                    return;
+                }
+
+                if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                    e.preventDefault();
+                }
+
+            })
+
+        })
+    </script>
+}

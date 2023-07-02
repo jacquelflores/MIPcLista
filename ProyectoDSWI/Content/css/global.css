@@ -1,0 +1,49 @@
+/*.card {
+    border: 1px solid #ccc;
+    border-radius: 21px;
+    padding: 33px;
+    width: auto;
+}
+*/
+.navbar-inverse {
+    background-color: #f3f3f3;
+    border-bottom: 2px solid #808080;
+}
+
+.card {
+    padding: 4rem;
+}
+
+    .navbar-inverse .navbar-nav > li > a:hover, .navbar-inverse .navbar-nav > li > a:focus {
+        color: #4fc77f;
+        background-color: transparent;
+    }
+
+
+    .mt-2 {
+        margin-top: 22px;
+    }
+
+.car {
+    border: 1px solid;
+    border-radius: 22px;
+    margin-right: 2%;
+
+}
+a.glyphicon.glyphicon-list-alt {
+    font-size: 2.5rem;
+}
+
+a.glyphicon.glyphicon-ok {
+    font-size: 2.5rem;
+}
+
+a.glyphicon.glyphicon-trash {
+    font-size: 2.5rem;
+}
+
+@media (min-width: 1200px){
+    .container {
+        width: 1346px;
+    }
+}

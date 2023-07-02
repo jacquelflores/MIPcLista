@@ -1,0 +1,85 @@
+﻿@model IEnumerable<ProyectoDSWI.Entity.Producto1>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+
+<div class="row">
+    <div class="col-md-9">
+        <h3><i class="glyphicon glyphicon-phone"></i> Productos</h3>
+    </div>
+    <div class="col-md-3">
+        @Html.ActionLink("Agregar", "Create", null, new { @class = "btn btn-success mt-2" })
+    </div>
+</div>
+
+<br/>
+
+<table class="table table-bordered">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.IdProducto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NombrePro)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Precio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FechaCreacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Foto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdCategoria)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stock)
+        </th>
+        <th>UPDATE</th>
+        <th>DETALLE</th>
+        <th>BORRAR</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr class="">
+            <td>
+                @Html.DisplayFor(modelItem => item.IdProducto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NombrePro)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FechaCreacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Foto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdCategoria)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Stock)
+            </td>
+            <td>
+                @Html.ActionLink(".", "Edit", new { id = item.IdProducto }, new { @class = "glyphicon glyphicon-ok" }) 
+            </td>
+            <td>
+                @Html.ActionLink(".", "Details", new { id = item.IdProducto }, new { @class = "glyphicon glyphicon-list-alt" }) 
+
+            </td>
+            <td>
+                @Html.ActionLink(".", "Delete", new { id = item.IdProducto }, new { @class = "glyphicon glyphicon-trash" })
+            </td>
+        </tr>
+    }
+
+</table>
